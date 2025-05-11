@@ -4,7 +4,7 @@ import loginpage.SignUpPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.GmailReader;
+//import utils.GmailReader;
 
 import java.time.Duration;
 
@@ -38,7 +38,7 @@ public class SignUpTest {
         System.out.println("⏳ في انتظار الكود...");
         String code = null;
         for (int i = 0; i < 10; i++) {
-            code = GmailReader.readVerificationCode(email, appPassword);
+           // code = GmailReader.readVerificationCode(email, appPassword);
             if (code != null) break;
             try { Thread.sleep(5000); } catch (Exception ignored) {}
         }
