@@ -17,12 +17,20 @@
     </properties>
 
     <dependencies>
-		<dependency>
+<dependency>
     <groupId>com.aventstack</groupId>
     <artifactId>extentreports</artifactId>
-    <version>5.0.9</version>
+    <version>5.1.1</version> <!-- أو أحدث نسخة -->
 </dependency>
-
+         
+         
+     
+ <!-- تبعية إضافية مطلوبة -->
+    <dependency>
+        <groupId>org.freemarker</groupId>
+        <artifactId>freemarker</artifactId>
+        <version>2.3.32</version>
+    </dependency>
         <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
