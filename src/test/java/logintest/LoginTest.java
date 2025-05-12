@@ -49,7 +49,7 @@ public class LoginTest {
                 "Test to verify login with valid credentials");
         
         try {
-            loginPage.enterUsername("s12113257@stu.najah.edu");
+            loginPage.enterUsername("s12113710@stu.najah.edu");
             loginPage.enterPassword("Doaa@26cs2003");
             
             DashboardPage dashboardPage = new DashboardPage(driver);
@@ -75,7 +75,7 @@ public class LoginTest {
                 "Test to verify account lock after multiple wrong password attempts");
         
         try {
-            loginPage.enterUsername("s12113257@stu.najah.edu");
+            loginPage.enterUsername("s12113710@stu.najah.edu");
             
             int attempts = 0;
             boolean isLocked = false;
@@ -104,6 +104,7 @@ public class LoginTest {
             throw e;
         }
     }
+    
     
     @AfterEach
     public void tearDown() {
