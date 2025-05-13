@@ -3,6 +3,8 @@ package logintest;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import loginpage.DashboardPage;
 import loginpage.LoginPage;
@@ -38,8 +40,12 @@ public class LoginTest {
     @BeforeEach
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        loginPage = new LoginPage(driver);
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // تشغيل بدون واجهة
+        options.addArguments("--no-sandbox"); // مهم لـ Jenkins
+        options.addArguments("--disable-dev-shm-usage"); // حل مشاكل الذاكرة المؤقتة
+
+        WebDriver driver = new ChromeDriver(options);        loginPage = new LoginPage(driver);
         loginPage.open(); // فتح صفحة تسجيل الدخول
     }
 
