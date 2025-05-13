@@ -44,6 +44,7 @@ public class LoginTest {
         options.addArguments("--headless"); // تشغيل بدون واجهة
         options.addArguments("--no-sandbox"); // مهم لـ Jenkins
         options.addArguments("--disable-dev-shm-usage"); // حل مشاكل الذاكرة المؤقتة
+        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--remote-debugging-port=9222");
 
         WebDriver driver = new ChromeDriver(options);        loginPage = new LoginPage(driver);
         loginPage.open(); // فتح صفحة تسجيل الدخول
