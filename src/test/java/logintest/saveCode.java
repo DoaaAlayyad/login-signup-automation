@@ -29,7 +29,7 @@ public class saveCode {
         this.driver = new ChromeDriver();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));  // إضافة المهلة
         this.loginPage = new LoginPage(driver);
-        
+
         // فتح الصفحة عبر الـ Page Object
         loginPage.open();
     }
@@ -86,7 +86,7 @@ public class saveCode {
 
         // التأكد من ظهور رسالة القفل بعد المحاولات
         assertTrue(lockMessageDisplayed, "لم تظهر رسالة قفل الحساب بعد إدخال كلمة المرور الخاطئة بشكل متكرر.");
-        
+
         // طباعة عدد المحاولات حتى القفل
         System.out.println("عدد المحاولات قبل ظهور رسالة القفل: " + attemptCount);
     }
@@ -160,7 +160,7 @@ public class saveCode {
         assertTrue(errorDisplayed, "رسالة الخطأ لم تظهر عند إدخال كلمة مرور خاطئة.");
     }
 
-    
+
 
 
     @AfterEach

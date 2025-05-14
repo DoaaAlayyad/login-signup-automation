@@ -1,20 +1,29 @@
 package logintest;
 
-import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-import loginpage.DashboardPage;
-import loginpage.LoginPage;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import loginpage.DashboardPage;
+import loginpage.LoginPage;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoginTest {
@@ -41,12 +50,13 @@ public class LoginTest {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // تشغيل بدون واجهة
+        options.addArguments("--headless=new"); // تأكد من استخدام --headless=new
         options.addArguments("--no-sandbox"); // مهم لـ Jenkins
         options.addArguments("--disable-dev-shm-usage"); // حل مشاكل الذاكرة المؤقتة
         options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--remote-debugging-port=9222");
+        options.addArguments("--disable-gpu"); // لو السيرفر ما فيه GPU
 
-        WebDriver driver = new ChromeDriver(options);        loginPage = new LoginPage(driver);
+         driver = new ChromeDriver(options);        loginPage = new LoginPage(driver);
         loginPage.open(); // فتح صفحة تسجيل الدخول
     }
 
@@ -54,7 +64,7 @@ public class LoginTest {
     @Order(1)
     @DisplayName("Successful login with valid credentials")
     public void testSuccessfulLogin() {
-        test = extent.createTest("Successful login with valid credentials", 
+        test = extent.createTest("Successful login with valid credentials",
             "Test to verify login with valid credentials");
 
         try {
@@ -84,7 +94,7 @@ public class LoginTest {
     @Order(2)
     @DisplayName("Account lock after wrong attempts")
     public void testAccountLockAfterWrongAttempts() {
-        test = extent.createTest("Account lock after wrong attempts", 
+        test = extent.createTest("Account lock after wrong attempts",
             "Test to verify account lock after multiple wrong password attempts");
 
         try {

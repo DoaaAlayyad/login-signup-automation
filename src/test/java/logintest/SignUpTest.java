@@ -1,12 +1,13 @@
 package logintest;
 
-import loginpage.SignUpPage;
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 //import utils.GmailReader;
 
-import java.time.Duration;
+import loginpage.SignUpPage;
 
 public class SignUpTest {
     public static void main(String[] args) {
@@ -39,7 +40,9 @@ public class SignUpTest {
         String code = null;
         for (int i = 0; i < 10; i++) {
            // code = GmailReader.readVerificationCode(email, appPassword);
-            if (code != null) break;
+            if (code != null) {
+				break;
+			}
             try { Thread.sleep(5000); } catch (Exception ignored) {}
         }
 
