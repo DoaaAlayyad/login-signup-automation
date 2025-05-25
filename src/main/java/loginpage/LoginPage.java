@@ -1,5 +1,7 @@
 package loginpage;
-
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 import java.time.Duration;
 
@@ -35,22 +37,34 @@ public class LoginPage {
         element.sendKeys(username);
         element.sendKeys(Keys.ENTER); // استخدام ENTER بدلاً من submit
     }
-
-    public void enterPassword(String password) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
-        element.clear();
-        element.sendKeys(password);
-        element.sendKeys(Keys.ENTER); // استخدام ENTER بدلاً من submit
-    }
-
-    public boolean isErrorMessageDisplayed() {
+    public void waitForPageLoad() {
         try {
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage)).isDisplayed();
+            new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+                webDriver -> ((JavascriptExecutor) webDriver)
+                    .executeScript("return document.readyState")
+                    .equals("complete")
+            );
         } catch (Exception e) {
-            return false;
+            System.out.println("Page load timeout: " + e.getMessage());
         }
     }
-
+    public void enterPassword(String password) {
+        WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable(By.id("authPwd")));
+        passwordField.clear();
+        
+        // إدخال كلمة السر حرفًا حرفًا
+        for (char c : password.toCharArray()) {
+            passwordField.sendKeys(String.valueOf(c));
+            try {
+                Thread.sleep(100); // تأخير بسيط بين الأحرف
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        
+        // إضافة ENTER للنهاية
+        passwordField.sendKeys(Keys.ENTER);
+    }
     public boolean isLockMessageDisplayed() {
         try {
             return wait.until(ExpectedConditions.visibilityOfElementLocated(lockMessage)).isDisplayed();

@@ -1,0 +1,8 @@
+loginpage/SignUpPage.class
+loginpage/LoginPage.class
+utils/ExtentReportManager.class
+utils/WebDriverFactory.class
+loginpage/DashboardPage.class
+loginpage/BasePage.class
+loginpage/DriverFactory.class
+utils/DriverFactory.class

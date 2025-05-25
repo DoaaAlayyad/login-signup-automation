@@ -12,6 +12,11 @@ Response response
 
 AssertTrue: ✔️
 assertTrue()
+مصطلحات مهمة 
+API Response	رد السيرفر بعد ما نبعث طلب
+JSON Array	قائمة من العناصر داخل JSON
+Assertion	التحقق من النتيجة المتوقعة
+Parsing	تحويل الرد من JSON إلى كائن قابل للتعامل
  */
 import io.restassured.RestAssured;//لإرسال طلبات HTTP واستلام الردود
 import io.restassured.response.Response;

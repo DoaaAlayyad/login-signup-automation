@@ -37,5 +37,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/doaa/.m2/repository/org/testng/testng/7.8.0/testng-7.8.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

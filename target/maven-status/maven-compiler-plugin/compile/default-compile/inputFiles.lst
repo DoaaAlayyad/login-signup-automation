@@ -1,6 +1,8 @@
 /home/doaa/Desktop/loginpage/src/main/java/loginpage/SignUpPage.java
 /home/doaa/Desktop/loginpage/src/main/java/loginpage/DashboardPage.java
+/home/doaa/Desktop/loginpage/src/main/java/utils/DriverFactory.java
 /home/doaa/Desktop/loginpage/src/main/java/utils/WebDriverFactory.java
 /home/doaa/Desktop/loginpage/src/main/java/loginpage/BasePage.java
 /home/doaa/Desktop/loginpage/src/main/java/utils/ExtentReportManager.java
 /home/doaa/Desktop/loginpage/src/main/java/loginpage/LoginPage.java
+/home/doaa/Desktop/loginpage/src/main/java/loginpage/DriverFactory.java

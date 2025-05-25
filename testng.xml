@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Web_Tests">
+    <parameter name="browser" value="chrome" /> <!-- القيمة الافتراضية -->
+    
+    <test name="Login_Test">
+        <parameter name="browser" value="chrome" /> <!-- إعادة تعريف هنا للتأكيد -->
+        <classes>
+            <class name="logintest.LoginTest" />
+        </classes>
+    </test>
+</suite>
